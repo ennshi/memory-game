@@ -3,8 +3,9 @@ import React from "react";
 class Navbar extends React.Component {
     render() {
         return (
-            <div>
-                Navbar
+            <div className="navbar">
+                <h1>MEMORY_GAME</h1>
+                <button className="yellow-btn"><i className="fas fa-trophy"></i></button>
             </div>
         );
     }
