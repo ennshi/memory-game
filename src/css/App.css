@@ -99,11 +99,61 @@ body {
     opacity: 0;
 }
 /* form */
-.start {
+.form {
     display: flex;
     flex-direction: column;
+    color: #333F48;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
-
+.form-header {
+    color: #E4E83B;
+    letter-spacing: 1px;
+}
+input, select {
+    width: 200px;
+    border-radius: 10px;
+    background-color: white;
+    height: 2rem;
+    margin: 0.5rem;
+    border: 1px transparent solid;
+    font-family: 'Roboto Mono', monospace;
+    color: #333F48;
+}
+input:focus, select:focus {
+    outline: none;
+    border: 1px #00BEB5 solid;
+}
+select {
+    text-align-last:center;
+    font-size: 1.1rem;
+}
+input {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+}
+.submit-btn {
+    background-color: #E4E83B;
+    border: none;
+    color: white;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    margin-top: 0.5rem;
+}
+.submit-btn:hover {
+    background-color: yellow;
+}
+.submit-btn:focus {
+    border: none;
+    outline: none;
+}
 /* timer */
 
 .timer {
