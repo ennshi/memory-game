@@ -37,10 +37,16 @@ class SettingsForm extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+       initialValues: state.board
+    };
+};
 const wrappedForm = reduxForm({
-    form: 'SettingsForm'
+    form: 'SettingsForm',
+    enableReinitialize : true
 })(SettingsForm);
 export default connect(
-    null,
+    mapStateToProps,
     {initializeBoard}
     )(wrappedForm);

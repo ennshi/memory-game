@@ -1,15 +1,20 @@
 import {INITIALIZE_BOARD} from "../actions/types";
 
-const INIT_STATE = {};
+const INIT_STATE = {
+    isInit: false,
+    cards: 20,
+    suits: 5,
+    theme: 'animals'
+};
 
 export default (state=INIT_STATE, action) => {
     switch (action.type) {
         case INITIALIZE_BOARD:
-            console.log(generateBoard(action.payload.cards, action.payload.suits));
             return {
                 ...state,
                 ...action.payload,
-                board: generateBoard(action.payload.cards, action.payload.suits)
+                board: generateBoard(action.payload.cards, action.payload.suits),
+                isInit: true
             };
         default:
             return state;
