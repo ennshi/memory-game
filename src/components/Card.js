@@ -5,7 +5,7 @@ const classNames = require("classnames");
 
 class Card extends React.Component {
     onClick = () => {
-
+        this.props.onClick(this.props.id);
     };
     render() {
         const card = this.props.board[this.props.id];
@@ -37,7 +37,8 @@ const mapStateToProps = (state, ownParams) => {
     return {
         board: state.board.board,
         id: ownParams.id,
-        theme: state.board.theme
+        theme: state.board.theme,
+        onClick: ownParams.onCardClick
     }
 };
 
