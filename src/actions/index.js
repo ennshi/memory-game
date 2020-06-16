@@ -7,20 +7,19 @@ export const initializeBoard = (formValues) => {
     }
 };
 
-export const flipCard = (id) => async (dispatch) => {
-    await setTimeout(() => {
-        dispatch({
-            type: FLIP_CARD,
-            payload: id
-        });
-    }, 400);
+export const flipCard = (idx) => {
+    return {
+        type: FLIP_CARD,
+        payload: idx
+    };
 };
 
-export const matchedCards = (id1, id2) => async (dispatch) => {
+export const matchedCards = (idx1, idx2) => async (dispatch) => {
     await setTimeout(() => {
         dispatch({
             type: MATCHED_CARDS,
-            payload: {id1, id2}
+            payload: {idx1, idx2}
         });
-    }, 310);
+    }, 700);
 };
+
