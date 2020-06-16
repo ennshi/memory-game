@@ -1,7 +1,8 @@
-import {INITIALIZE_BOARD} from "../actions/types";
+import {FLIP_CARD, INITIALIZE_BOARD} from "../actions/types";
 
 const INIT_STATE = {
     isInit: false,
+    idxOpened: [],
     cards: 20,
     suits: 5,
     theme: 'animals'
@@ -15,6 +16,12 @@ export default (state=INIT_STATE, action) => {
                 ...action.payload,
                 board: generateBoard(action.payload.cards, action.payload.suits),
                 isInit: true
+            };
+        case FLIP_CARD:
+            return {
+                ...state,
+                board: toggleOneCard(state.board, action.payload),
+                idxOpened: listOpenedCards(state.idxOpened, action.payload)
             };
         default:
             return state;
@@ -47,4 +54,18 @@ const generateBoard = (numCards, numSuits) => {
         numPairs--;
     }
     return shuffleCards(board);
+};
+
+const toggleOneCard = (board, idx) => {
+    const newBoard = [...board];
+    console.log(newBoard, idx);
+    newBoard[idx].opened = !board[idx].opened;
+    return newBoard;
+};
+
+const listOpenedCards = (prevList, idx) => {
+    if(prevList.includes(idx)) {
+       return prevList.filter(cardIdx => cardIdx !== idx);
+    }
+    return [...prevList, idx];
 };
