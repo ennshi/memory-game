@@ -1,4 +1,4 @@
-import {FLIP_CARD, INITIALIZE_BOARD} from "../actions/types";
+import {FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS} from "../actions/types";
 
 const INIT_STATE = {
     isInit: false,
@@ -22,6 +22,12 @@ export default (state=INIT_STATE, action) => {
                 ...state,
                 board: toggleOneCard(state.board, action.payload),
                 idxOpened: listOpenedCards(state.idxOpened, action.payload)
+            };
+        case MATCHED_CARDS:
+            return {
+                ...state,
+                board: matchTwoCards(state.board, action.payload),
+                idxOpened: []
             };
         default:
             return state;
@@ -58,7 +64,6 @@ const generateBoard = (numCards, numSuits) => {
 
 const toggleOneCard = (board, idx) => {
     const newBoard = [...board];
-    console.log(newBoard, idx);
     newBoard[idx].opened = !board[idx].opened;
     return newBoard;
 };
@@ -68,4 +73,11 @@ const listOpenedCards = (prevList, idx) => {
        return prevList.filter(cardIdx => cardIdx !== idx);
     }
     return [...prevList, idx];
+};
+
+const matchTwoCards = (board, {idx1, idx2}) => {
+    const newBoard = [...board];
+    newBoard[idx1].matched = newBoard[idx2].matched = true;
+    newBoard[idx1].opened = newBoard[idx2].opened = false;
+    return newBoard;
 };
