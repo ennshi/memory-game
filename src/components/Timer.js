@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {stopTimer, updateTimer} from "../actions";
+const classNames = require('classnames');
 
 class Timer extends React.Component {
     timerInterval = null;
@@ -22,11 +23,17 @@ class Timer extends React.Component {
 
     };
     render() {
+        const pauseClass = classNames({
+            'yellow-btn': true,
+            pause: !this.props.active
+        });
         return (
             <div className='timer'>
-                <h4>{this.props.timer}</h4>
-                <button onClick={this.onPause} className="yellow-btn"><i className="fas fa-pause"></i></button>
-                <button onClick={this.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
+                <h4 className="clock">Timer: {this.props.timer}</h4>
+                <div className="btn-set">
+                    <button onClick={this.onPause} className={pauseClass}><i className="fas fa-pause"></i></button>
+                    <button onClick={this.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
+                </div>
             </div>
         );
     }
