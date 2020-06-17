@@ -1,10 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
-import {stopTimer} from "../actions";
+import {stopTimer, updateTimer} from "../actions";
 
 class Timer extends React.Component {
+    timerInterval = null;
     onPause = () => {
-        this.props.stopTimer();
+        if(this.props.active) {
+            this.props.stopTimer();
+            clearInterval(this.timerInterval);
+            this.timerInterval = null;
+        }
+    };
+    setTimerInterval = () => {
+        if(!this.timerInterval) {
+            this.timerInterval = setInterval(() => {
+                this.props.updateTimer();
+            }, 1000);
+        }
     };
     onExit = () => {
 
@@ -18,16 +30,27 @@ class Timer extends React.Component {
             </div>
         );
     }
+    componentDidUpdate(prevProps) {
+        if(!this.props.cardsLeft.length) {
+            this.onPause();
+        }
+        if(this.props.active && !prevProps.active) {
+            this.setTimerInterval();
+        }
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
-        timer: state.timer.timer
+        timer: state.timer.timer,
+        active: state.timer.timerActivated,
+        cardsLeft: state.board.board.filter(card => !card.matched)
     }
 };
 export default connect(
     mapStateToProps,
     {
-        stopTimer
+        stopTimer,
+        updateTimer
     }
 )(Timer);
