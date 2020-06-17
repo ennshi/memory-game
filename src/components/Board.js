@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import Card from "./Card";
 import {flipCard, matchedCards} from "../actions";
+import Timer from "./Timer";
 
 class Board extends React.Component {
     onCardClick = (idx) => {
@@ -26,9 +27,12 @@ class Board extends React.Component {
                 onCardClick={this.onCardClick}
             />));
         return (
-            <div className="board">
-                {cards}
-            </div>
+            <>
+                <Timer />
+                <div className="board">
+                    {cards}
+                </div>
+            </>
         );
     }
     componentDidUpdate() {
