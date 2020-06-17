@@ -1,8 +1,10 @@
 import React from "react";
+import {connect} from "react-redux";
+import {stopTimer} from "../actions";
 
 class Timer extends React.Component {
     onPause = () => {
-
+        this.props.stopTimer();
     };
     onExit = () => {
 
@@ -18,4 +20,14 @@ class Timer extends React.Component {
     }
 }
 
-export default Timer;
+const mapStateToProps = (state) => {
+    return {
+        timer: state.timer.timer
+    }
+};
+export default connect(
+    mapStateToProps,
+    {
+        stopTimer
+    }
+)(Timer);
