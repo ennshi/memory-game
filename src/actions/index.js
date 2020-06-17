@@ -1,4 +1,4 @@
-import {FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS} from "./types";
+import {FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS, STOP_TIMER, UPDATE_TIMER} from "./types";
 
 export const initializeBoard = (formValues) => {
     return {
@@ -23,3 +23,14 @@ export const matchedCards = (idx1, idx2) => async (dispatch) => {
     }, 700);
 };
 
+export const stopTimer = () => {
+    return {
+        type: STOP_TIMER
+    };
+};
+
+export const updateTimer = () => {
+    return {
+        type: UPDATE_TIMER
+    };
+};
