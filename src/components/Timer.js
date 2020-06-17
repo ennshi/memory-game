@@ -7,10 +7,15 @@ class Timer extends React.Component {
     timerInterval = null;
     onPause = () => {
         if(this.props.active) {
-            this.props.stopTimer();
-            clearInterval(this.timerInterval);
-            this.timerInterval = null;
+            this.unsetTimerInterval();
+        } else {
+            this.setTimerInterval();
         }
+    };
+    unsetTimerInterval = () => {
+        this.props.stopTimer();
+        clearInterval(this.timerInterval);
+        this.timerInterval = null;
     };
     setTimerInterval = () => {
         if(!this.timerInterval) {
@@ -39,7 +44,7 @@ class Timer extends React.Component {
     }
     componentDidUpdate(prevProps) {
         if(!this.props.cardsLeft.length) {
-            this.onPause();
+            this.unsetTimerInterval();
         }
         if(this.props.active && !prevProps.active) {
             this.setTimerInterval();

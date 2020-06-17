@@ -20,6 +20,7 @@ export default (state=INIT_STATE, action) => {
         case UPDATE_TIMER:
             return {
                 ...state,
+                timerActivated: true,
                 timer: (state.timer + 1)
             };
         default:
