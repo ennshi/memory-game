@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import Card from "./Card";
-import {flipCard, matchedCards} from "../actions";
+import {exitCurrentGame, flipCard, matchedCards} from "../actions";
 import Timer from "./Timer";
 
 class Board extends React.Component {
@@ -9,6 +9,9 @@ class Board extends React.Component {
         if(this.props.openedCards.length < 2) {
             this.props.flipCard(idx);
         }
+    };
+    onExit = () => {
+        this.props.exitCurrentGame();
     };
     checkMatch = (idx1, idx2, board) => {
         if(board[idx1].suit === board[idx2].suit) {
@@ -28,7 +31,7 @@ class Board extends React.Component {
             />));
         return (
             <>
-                <Timer />
+                <Timer onExit={this.onExit}/>
                 <div className="board">
                     {cards}
                 </div>
@@ -52,6 +55,7 @@ export default connect(
     mapStateToProps,
     {
         flipCard,
-        matchedCards
+        matchedCards,
+        exitCurrentGame
     }
 )(Board);

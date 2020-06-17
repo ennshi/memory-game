@@ -1,4 +1,4 @@
-import {FLIP_CARD, STOP_TIMER, UPDATE_TIMER} from "../actions/types";
+import {EXIT, FLIP_CARD, STOP_TIMER, UPDATE_TIMER} from "../actions/types";
 
 const INIT_STATE = {
     timerActivated: false,
@@ -23,6 +23,8 @@ export default (state=INIT_STATE, action) => {
                 timerActivated: true,
                 timer: (state.timer + 1)
             };
+        case EXIT:
+            return INIT_STATE;
         default:
             return state;
     }

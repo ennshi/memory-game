@@ -1,4 +1,4 @@
-import {FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS, STOP_TIMER, UPDATE_TIMER} from "./types";
+import {EXIT, FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS, STOP_TIMER, UPDATE_TIMER} from "./types";
 
 export const initializeBoard = (formValues) => {
     return {
@@ -33,4 +33,10 @@ export const updateTimer = () => {
     return {
         type: UPDATE_TIMER
     };
+};
+
+export const exitCurrentGame = () => {
+    return {
+        type: EXIT
+    }
 };

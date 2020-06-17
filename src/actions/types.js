@@ -7,6 +7,7 @@ export const STOP_TIMER = 'STOP_TIMER';
 export const INITIALIZE_BOARD = 'INITIALIZE_BOARD';
 export const FLIP_CARD = 'FLIP_CARD';
 export const MATCHED_CARDS = 'MATCHED_CARDS';
+export const EXIT = 'EXIT';
 
 // champions action
 export const GET_CHAMPIONS = 'GET_CHAMPIONS';

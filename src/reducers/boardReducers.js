@@ -1,4 +1,4 @@
-import {FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS} from "../actions/types";
+import {EXIT, FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS} from "../actions/types";
 
 const INIT_STATE = {
     isInit: false,
@@ -29,6 +29,8 @@ export default (state=INIT_STATE, action) => {
                 board: matchTwoCards(state.board, action.payload),
                 idxOpened: []
             };
+        case EXIT:
+            return INIT_STATE;
         default:
             return state;
     }

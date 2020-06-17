@@ -24,9 +24,6 @@ class Timer extends React.Component {
             }, 1000);
         }
     };
-    onExit = () => {
-
-    };
     render() {
         const pauseClass = classNames({
             'yellow-btn': true,
@@ -37,7 +34,7 @@ class Timer extends React.Component {
                 <h4 className="clock">Timer: {this.props.timer}</h4>
                 <div className="btn-set">
                     <button onClick={this.onPause} className={pauseClass}><i className="fas fa-pause"></i></button>
-                    <button onClick={this.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
+                    <button onClick={this.props.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
                 </div>
             </div>
         );
@@ -52,11 +49,12 @@ class Timer extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
         timer: state.timer.timer,
         active: state.timer.timerActivated,
-        cardsLeft: state.board.board.filter(card => !card.matched)
+        cardsLeft: state.board.board.filter(card => !card.matched),
+        onExit: ownProps.onExit
     }
 };
 export default connect(
