@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import Board from "./Board";
 import ChampionList from "./ChampionList";
 import {gameEnded, toggleChampionList} from "../actions";
+import {addChampionToCookie} from "../resources/cookies";
 
 class App extends React.Component {
     mainViewRender = () => {
@@ -20,7 +21,7 @@ class App extends React.Component {
     endGame = () => {
             this.props.gameEnded();
             const champion = this.createNewChampion();
-            console.log(champion);
+            addChampionToCookie(champion);
     };
     createNewChampion = () => {
         const {cards, suits, username, timer} = this.props;
