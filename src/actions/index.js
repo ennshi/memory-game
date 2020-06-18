@@ -1,4 +1,13 @@
-import {EXIT, FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS, STOP_TIMER, TOGGLE_CHAMPLIST, UPDATE_TIMER} from "./types";
+import {
+    EXIT,
+    FLIP_CARD,
+    GAME_ENDED,
+    INITIALIZE_BOARD,
+    MATCHED_CARDS,
+    STOP_TIMER,
+    TOGGLE_CHAMPLIST,
+    UPDATE_TIMER
+} from "./types";
 
 export const initializeBoard = (formValues) => {
     return {
@@ -45,4 +54,10 @@ export const toggleChampionList = () => {
     return {
         type: TOGGLE_CHAMPLIST
     };
+};
+
+export const gameEnded = () => {
+    return {
+        type: GAME_ENDED
+    }
 };
