@@ -5,7 +5,7 @@ class Navbar extends React.Component {
         return (
             <div className="navbar">
                 <h1>MEMORY_GAME</h1>
-                <button className="yellow-btn"><i className="fas fa-trophy"></i></button>
+                <button onClick={this.props.onClick} className="yellow-btn"><i className="fas fa-trophy"></i></button>
             </div>
         );
     }
