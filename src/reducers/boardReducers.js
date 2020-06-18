@@ -1,11 +1,14 @@
-import {EXIT, FLIP_CARD, INITIALIZE_BOARD, MATCHED_CARDS} from "../actions/types";
+import {EXIT, FLIP_CARD, GAME_ENDED, INITIALIZE_BOARD, MATCHED_CARDS} from "../actions/types";
 
 const INIT_STATE = {
+    username: 'username_',
     isInit: false,
     idxOpened: [],
+    board: [],
     cards: 20,
     suits: 5,
-    theme: 'animals'
+    theme: 'animals',
+    endGame: false
 };
 
 export default (state=INIT_STATE, action) => {
@@ -28,6 +31,11 @@ export default (state=INIT_STATE, action) => {
                 ...state,
                 board: matchTwoCards(state.board, action.payload),
                 idxOpened: []
+            };
+        case GAME_ENDED:
+            return {
+                ...state,
+                endGame: true
             };
         case EXIT:
             return INIT_STATE;

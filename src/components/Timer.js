@@ -40,12 +40,15 @@ class Timer extends React.Component {
         );
     }
     componentDidUpdate(prevProps) {
-        if(!this.props.cardsLeft.length) {
+        if(this.props.endGame) {
             this.unsetTimerInterval();
         }
         if(this.props.active && !prevProps.active) {
             this.setTimerInterval();
         }
+    }
+    componentWillUnmount() {
+        this.unsetTimerInterval();
     }
 }
 
@@ -53,8 +56,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         timer: state.timer.timer,
         active: state.timer.timerActivated,
-        cardsLeft: state.board.board.filter(card => !card.matched),
-        onExit: ownProps.onExit
+        onExit: ownProps.onExit,
+        endGame: state.board.endGame
     }
 };
 export default connect(

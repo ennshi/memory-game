@@ -5,7 +5,7 @@ import SettingsForm from "./SettingsForm";
 import {connect} from "react-redux";
 import Board from "./Board";
 import ChampionList from "./ChampionList";
-import {toggleChampionList} from "../actions";
+import {gameEnded, toggleChampionList} from "../actions";
 
 class App extends React.Component {
     mainViewRender = () => {
@@ -17,7 +17,25 @@ class App extends React.Component {
         }
         return <SettingsForm />;
     };
-
+    endGame = () => {
+            this.props.gameEnded();
+            const champion = this.createNewChampion();
+            console.log(champion);
+    };
+    createNewChampion = () => {
+        const {cards, suits, username, timer} = this.props;
+        return {
+            cards,
+            suits,
+            username,
+            timer
+        };
+    };
+    componentDidUpdate() {
+        if(!this.props.endGame && !this.props.cardsLeft.length && this.props.boardIsInit) {
+            this.endGame();
+        }
+    }
     render() {
         return (
             <div className="App">
@@ -30,12 +48,19 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
     return {
         boardIsInit: state.board.isInit,
-        showChampionList: state.champions.showChampionList
+        showChampionList: state.champions.showChampionList,
+        cardsLeft: state.board.board.filter(card => !card.matched),
+        cards: state.board.cards,
+        suits: state.board.suits,
+        username: state.board.username,
+        timer: state.timer.timer,
+        endGame: state.board.endGame
     }
 };
 export default connect(
     mapStateToProps,
     {
         toggleChampionList,
+        gameEnded
     }
 )(App);
