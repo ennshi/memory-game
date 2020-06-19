@@ -6,17 +6,21 @@ export const showOneBoardResults = (cards, suits) => {
     return [];
 };
 const loadCookie = () => {
-    let data = null;
+    let data = {};
     const cookieData = document.cookie.split(';');
     if (cookieData[0]) {
         data = JSON.parse(unescape(cookieData[0]));
     }
     return data;
 };
+const setExpiresDate = () => {
+    const today = Date.now();
+    const nextday = new Date((today+60*60*1000*24));
+    return nextday.toUTCString();
+};
 const saveCookie = (obj) => {
-    const date = new Date(2020, 6, 20);
     document.cookie = escape(JSON.stringify(obj))
-        + ';expires=' + date.toUTCString();
+        + ';expires=' + setExpiresDate();
 };
 const sortListAndTake5Top = (list) => {
     const sortedArray = [...list].sort((a,b) => a.timer - b.timer);
