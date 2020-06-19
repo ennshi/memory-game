@@ -4,6 +4,7 @@ import ChampionListForm from "./ChampionListForm";
 import {formValueSelector} from "redux-form";
 import {connect} from "react-redux";
 import {showOneBoardResults} from "../resources/cookies";
+import {exitCurrentGame, toggleChampionList} from "../actions";
 
 class ChampionList extends React.Component {
     state = {
@@ -23,6 +24,14 @@ class ChampionList extends React.Component {
                 </div>);
         });
     };
+    onExit = () => {
+        if(!this.props.boardIsInit) {
+            this.props.exitCurrentGame();
+        } else {
+            this.props.toggleChampionList();
+        }
+
+    };
     componentDidMount() {
         this.getChampionsFromCookies();
     };
@@ -37,7 +46,7 @@ class ChampionList extends React.Component {
             <>
                 <div className="champion-header-container">
                     <h1>Best Score</h1>
-                    <button onClick={this.props.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
+                    <button onClick={this.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
                 </div>
                 <div className="champion-list-wrapper">
                     <ChampionListForm />
@@ -52,6 +61,12 @@ const mapStateToProps = state => {
     return {
         cardsChampionList: selector(state, 'cards'),
         suitsChampionList: selector(state, 'suits'),
+        boardIsInit: state.board.isInit
     }
 };
-export default connect(mapStateToProps)(ChampionList);
+export default connect(
+    mapStateToProps,
+    {
+        exitCurrentGame,
+        toggleChampionList
+    })(ChampionList);

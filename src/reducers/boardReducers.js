@@ -35,6 +35,7 @@ export default (state=INIT_STATE, action) => {
         case GAME_ENDED:
             return {
                 ...state,
+                isInit: false,
                 endGame: true
             };
         case EXIT:

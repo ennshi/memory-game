@@ -1,4 +1,4 @@
-import {GAME_ENDED, TOGGLE_CHAMPLIST} from "../actions/types";
+import {EXIT, GAME_ENDED, TOGGLE_CHAMPLIST} from "../actions/types";
 
 const INIT_VALUE = {
     showChampionList: false
@@ -15,6 +15,8 @@ export default (state=INIT_VALUE, action) => {
                 ...state,
                 showChampionList: true
             };
+        case EXIT:
+            return INIT_VALUE;
         default:
             return state;
     }
