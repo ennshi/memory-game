@@ -45,6 +45,9 @@ body {
     cursor: pointer;
     color: yellow;
 }
+.yellow-btn:disabled {
+    color: #C4C4C4;
+}
 /* flip-cards */
 .card {
     width: 50px;
@@ -113,7 +116,7 @@ body {
     color: #E4E83B;
     letter-spacing: 1px;
 }
-input, select {
+.form-field {
     border-radius: 10px;
     background-color: white;
     height: 2rem;
@@ -121,10 +124,15 @@ input, select {
     border: 1px transparent solid;
     font-family: 'Roboto Mono', monospace;
     color: #333F48;
+    width: 200px;
 }
-input:focus, select:focus {
+.form-field:focus {
     outline: none;
     border: 1px #00BEB5 solid;
+}
+.checkbox-field {
+    width: 250px;
+    font-size: 0.8rem;
 }
 select {
     text-align-last:center;
@@ -134,8 +142,9 @@ input {
     font-size: 1.2rem;
     padding-left: 0.5rem;
 }
-.form select, input {
-    width: 200px;
+
+label {
+    color: white;
 }
 .submit-btn {
     background-color: #E4E83B;

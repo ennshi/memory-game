@@ -10,7 +10,7 @@ import {addChampionToCookie} from "../resources/cookies";
 
 class App extends React.Component {
     mainViewRender = () => {
-        if(this.props.showChampionList) {
+        if(this.props.showChampionList && this.props.allowCookie) {
             return <ChampionList />
         }
         if (this.props.boardIsInit) {
@@ -20,8 +20,10 @@ class App extends React.Component {
     };
     endGame = () => {
             this.props.gameEnded();
-            const champion = this.createNewChampion();
-            addChampionToCookie(champion);
+            if(this.props.allowCookie) {
+                const champion = this.createNewChampion();
+                addChampionToCookie(champion);
+            }
     };
     createNewChampion = () => {
         const {cards, suits, username, timer} = this.props;
@@ -55,7 +57,8 @@ const mapStateToProps = (state) => {
         suits: state.board.suits,
         username: state.board.username,
         timer: state.timer.timer,
-        endGame: state.board.endGame
+        endGame: state.board.endGame,
+        allowCookie: state.board.allowCookie
     }
 };
 export default connect(

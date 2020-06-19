@@ -21,17 +21,21 @@ class SettingsForm extends React.Component {
         return (
             <form className="form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <h1 className="form-header">Hello</h1>
-                <Field name="username" component="input" placeholder="username_"/>
+                <Field className="form-field" name="username" component="input" placeholder="username_"/>
                 <h2 className="form-header">Board</h2>
-                <Field name="cards" component="select">
+                <Field className="form-field" name="cards" component="select">
                     {this.renderSelectOptions(CARDS)}
                 </Field>
-                <Field name="suits" component="select">
+                <Field className="form-field" name="suits" component="select">
                     {this.renderSelectOptions(SUITS)}
                 </Field>
-                <Field name="theme" component="select">
+                <Field className="form-field" name="theme" component="select">
                     {this.renderSelectOptions(THEMES)}
                 </Field>
+                <div className="checkbox-field">
+                    <Field type="checkbox" component="input" label="allow" name="allowCookie" id="allowCookie"/>
+                    <label htmlFor="allowCookie">Allow MEMORY_GAME to save and read cookie data</label>
+                </div>
                 <button type="submit" className="submit-btn"><i className="fas fa-play"></i></button>
             </form>
         );
