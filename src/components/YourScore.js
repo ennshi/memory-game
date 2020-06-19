@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {exitCurrentGame, toggleChampionList} from "../actions";
+import "../css/YourScore.css";
 
 class YourScore extends React.Component {
     onClick = () => {
