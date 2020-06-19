@@ -18,9 +18,11 @@ const setExpiresDate = () => {
     const nextday = new Date((today+60*60*1000*24));
     return nextday.toUTCString();
 };
-const saveCookie = (obj) => {
+const saveCookie = (obj={}) => {
+    const date = (Object.keys(obj).length === 0) ? new Date(2010, 1, 10).toUTCString()
+        : setExpiresDate();
     document.cookie = escape(JSON.stringify(obj))
-        + ';expires=' + setExpiresDate();
+        + ';expires=' + date;
 };
 const sortListAndTake5Top = (list) => {
     const sortedArray = [...list].sort((a,b) => a.timer - b.timer);
@@ -42,4 +44,8 @@ export const addChampionToCookie = (champion) => {
         }
     }
     saveCookie(newChampList);
+};
+
+export const clearCookies = () => {
+    saveCookie();
 };

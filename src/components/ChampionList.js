@@ -3,7 +3,7 @@ import "../css/ChampionList.css";
 import ChampionListForm from "./ChampionListForm";
 import {formValueSelector} from "redux-form";
 import {connect} from "react-redux";
-import {showOneBoardResults} from "../resources/cookies";
+import {clearCookies, showOneBoardResults} from "../resources/cookies";
 import {exitCurrentGame, toggleChampionList} from "../actions";
 
 class ChampionList extends React.Component {
@@ -32,6 +32,10 @@ class ChampionList extends React.Component {
         }
 
     };
+    onClearClick = () => {
+        clearCookies();
+        this.onExit();
+    };
     componentDidMount() {
         this.getChampionsFromCookies();
     };
@@ -51,6 +55,10 @@ class ChampionList extends React.Component {
                 <div className="champion-list-wrapper">
                     <ChampionListForm />
                     {this.renderChampions()}
+                    <button className="btn"
+                            onClick={this.onClearClick}
+                            disabled={this.state.champions.length === 0}>Clear
+                    </button>
                 </div>
             </>
         );
