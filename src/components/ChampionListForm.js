@@ -1,5 +1,5 @@
 import React from "react";
-import {Field, reduxForm, formValues} from "redux-form";
+import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {CARDS, SUITS} from "../resources/selectValues";
 
@@ -15,7 +15,7 @@ class ChampionListForm extends React.Component {
     };
     render() {
         return (
-            <form onChange={this.props.onChange}>
+            <form>
                 <Field name="cards" component="select">
                     {this.renderSelectOptions(CARDS)}
                 </Field>
@@ -26,13 +26,12 @@ class ChampionListForm extends React.Component {
         );
     }
 }
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         initialValues: {
             cards: state.board.cards,
             suits: state.board.suits
         },
-        onChange: ownProps.onChange
     }
 };
 const wrappedForm = reduxForm({

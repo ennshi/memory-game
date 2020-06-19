@@ -3,15 +3,32 @@ import "../css/ChampionList.css";
 import ChampionListForm from "./ChampionListForm";
 import {formValueSelector} from "redux-form";
 import {connect} from "react-redux";
+import {loadCookie} from "../resources/cookies";
 
 class ChampionList extends React.Component {
-    onChange = () => {
-        console.log(this.props.values);
+    state = {
+        champions: []
     };
+    getChampionsFromCookies = () => {
+        const {cardsChampionList, suitsChampionList} = this.props;
+        this.setState({champions: loadCookie(cardsChampionList, suitsChampionList)});
+    };
+    renderChampions = () => {
+
+    };
+    componentDidMount() {
+        this.getChampionsFromCookies();
+    };
+    componentDidUpdate(prevProps) {
+        if(prevProps.cardsChampionList !== this.props.cardsChampionList ||
+            prevProps.suitsChampionList !== this.props.suitsChampionList) {
+            this.getChampionsFromCookies();
+        }
+    }
     render() {
         return (
             <div className="champion-list-wrapper">
-                <ChampionListForm onChange={this.onChange}/>
+                <ChampionListForm />
             </div>
         );
     }
@@ -19,7 +36,8 @@ class ChampionList extends React.Component {
 const mapStateToProps = state => {
     const selector = formValueSelector('ChampionsForm');
     return {
-        values: selector(state, 'cards')
+        cardsChampionList: selector(state, 'cards'),
+        suitsChampionList: selector(state, 'suits'),
     }
 };
 export default connect(mapStateToProps)(ChampionList);
