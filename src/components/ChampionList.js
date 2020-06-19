@@ -14,7 +14,14 @@ class ChampionList extends React.Component {
         this.setState({champions: showOneBoardResults(cardsChampionList, suitsChampionList)});
     };
     renderChampions = () => {
-
+        return this.state.champions.map((champion, i) => {
+            return (
+                <div key={i}>
+                    <span>{(i + 1) + '. '}</span>
+                    <span>{champion.username}</span>
+                    <span>{champion.timer}</span>
+                </div>);
+        });
     };
     componentDidMount() {
         this.getChampionsFromCookies();
@@ -29,6 +36,7 @@ class ChampionList extends React.Component {
         return (
             <div className="champion-list-wrapper">
                 <ChampionListForm />
+                {this.renderChampions()}
             </div>
         );
     }
