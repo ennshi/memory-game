@@ -1,0 +1,28 @@
+.champion-header-container {
+    display: grid;
+    grid-template-columns: auto 50px;
+    align-items: start;
+    width: 300px;
+    margin: 0 auto;
+}
+.champion-header-container h1 {
+    color: white;
+    justify-self: stretch;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 20px -50px 20px 0;
+}
+.champion-header-container button {
+    justify-self: end;
+}
+.champion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #00BEB5;
+    color: white;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 300px;
+    height: 35px;
+}
