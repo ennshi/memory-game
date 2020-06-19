@@ -3,7 +3,7 @@ import "../css/ChampionList.css";
 import ChampionListForm from "./ChampionListForm";
 import {formValueSelector} from "redux-form";
 import {connect} from "react-redux";
-import {loadCookie} from "../resources/cookies";
+import {showOneBoardResults} from "../resources/cookies";
 
 class ChampionList extends React.Component {
     state = {
@@ -11,7 +11,7 @@ class ChampionList extends React.Component {
     };
     getChampionsFromCookies = () => {
         const {cardsChampionList, suitsChampionList} = this.props;
-        this.setState({champions: loadCookie(cardsChampionList, suitsChampionList)});
+        this.setState({champions: showOneBoardResults(cardsChampionList, suitsChampionList)});
     };
     renderChampions = () => {
 

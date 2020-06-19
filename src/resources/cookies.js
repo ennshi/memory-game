@@ -1,4 +1,12 @@
-export const loadCookie = () => {
+export const showOneBoardResults = (cards, suits) => {
+    const boards = loadCookie();
+    if(boards.hasOwnProperty([cards+'X'+suits])) {
+        return boards[cards+'X'+suits];
+    }
+    return [];
+};
+
+const loadCookie = () => {
     let data = null;
     const cookieData = document.cookie.split(';');
     if (cookieData[0]) {
@@ -8,7 +16,7 @@ export const loadCookie = () => {
 };
 
 const saveCookie = (obj) => {
-    const date = new Date(2020, 6, 19);
+    const date = new Date(2020, 6, 20);
     document.cookie = escape(JSON.stringify(obj))
         + ';expires=' + date.toUTCString();
 };
