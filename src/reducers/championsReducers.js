@@ -10,11 +10,6 @@ export default (state=INIT_VALUE, action) => {
                 ...state,
                 showChampionList: !state.showChampionList
             };
-        case GAME_ENDED:
-            return {
-                ...state,
-                showChampionList: true
-            };
         case EXIT:
             return INIT_VALUE;
         default:

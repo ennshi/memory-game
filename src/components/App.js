@@ -7,6 +7,7 @@ import Board from "./Board";
 import ChampionList from "./ChampionList";
 import {gameEnded, toggleChampionList} from "../actions";
 import {addChampionToCookie} from "../resources/cookies";
+import YourScore from "./YourScore";
 
 class App extends React.Component {
     mainViewRender = () => {
@@ -15,6 +16,9 @@ class App extends React.Component {
         }
         if (this.props.boardIsInit) {
             return <Board />
+        }
+        if (this.props.endGame) {
+            return <YourScore />
         }
         return <SettingsForm />;
     };
