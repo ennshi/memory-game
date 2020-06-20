@@ -47,9 +47,9 @@ export default (state=INIT_STATE, action) => {
 
 const shuffleCards = (arr) => {
     let shuffledArr = [...arr];
-    // shuffledArr.sort(() => Math.random() - 0.5);
-    // shuffledArr.sort(() => Math.random() - 0.5);
-    // shuffledArr.sort(() => Math.random() - 0.5);
+    shuffledArr.sort(() => Math.random() - 0.5);
+    shuffledArr.sort(() => Math.random() - 0.5);
+    shuffledArr.sort(() => Math.random() - 0.5);
     return shuffledArr;
 };
 

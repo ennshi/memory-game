@@ -209,7 +209,7 @@ label {
 .timer {
     display: flex;
     justify-content: flex-end;
-    width: 60%;
+    width: 90%;
     margin: 1vh auto;
 }
 
@@ -250,13 +250,18 @@ label {
 }
 
 @media only screen and (min-width: 620px) {
-    .board {
+    .board, .timer {
         width: 600px;
     }
 
     .card {
         width: 55px;
         height: 67px;
+    }
+
+    .card-inner img {
+        width: 50px;
+        max-height: 67px;
     }
 }
 

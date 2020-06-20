@@ -21,7 +21,7 @@ class SettingsForm extends React.Component {
         return (
             <form className="form" onSubmit={this.props.handleSubmit(this.onSubmit)}>
                 <h1 className="form-header">Hello</h1>
-                <Field className="form-field" name="username" component="input" placeholder="username_"/>
+                <Field className="form-field" name="username" component="input" maxLength="13"/>
                 <h2 className="form-header">Board</h2>
                 <Field className="form-field" name="cards" component="select">
                     {this.renderSelectOptions(CARDS)}
