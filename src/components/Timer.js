@@ -31,7 +31,7 @@ class Timer extends React.Component {
         });
         return (
             <div className='timer'>
-                <h4 className="clock">Timer: {this.props.timer}</h4>
+                <h4 className="clock">{this.props.timer}</h4>
                 <div className="btn-set">
                     <button onClick={this.onPause} className={pauseClass}><i className="fas fa-pause"></i></button>
                     <button onClick={this.props.onExit} className="yellow-btn" style={{fontSize: '1.8rem'}}><i className="fas fa-times"></i></button>
