@@ -1,7 +1,8 @@
 const THEMES = {
     animals: 'animals',
     landmarks: 'landmarks',
-    leaves: 'leaves'
+    leaves: 'leaves',
+    waincats: 'waincats'
 };
 const SUITS = {
     '5': '5 suits',
@@ -10,8 +11,7 @@ const SUITS = {
 };
 const CARDS = {
     '20': '20 cards',
-    '30': '30 cards',
-    '40': '40 cards'
+    '30': '30 cards'
 };
 
 export {THEMES, CARDS, SUITS};
