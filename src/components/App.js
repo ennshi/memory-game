@@ -11,7 +11,7 @@ import YourScore from "./YourScore";
 
 class App extends React.Component {
     mainViewRender = () => {
-        if(this.props.showChampionList && this.props.allowCookie) {
+        if(this.props.showChampionList) {
             return <ChampionList />
         }
         if (this.props.boardIsInit) {

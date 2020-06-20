@@ -5,6 +5,7 @@
     width: 300px;
     margin: 0 auto;
 }
+
 .champion-header-container h1 {
     color: white;
     justify-self: stretch;
@@ -12,9 +13,11 @@
     text-align: center;
     margin: 20px -50px 20px 0;
 }
+
 .champion-header-container button {
     justify-self: end;
 }
+
 .champion {
     display: flex;
     justify-content: space-around;

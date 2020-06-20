@@ -7,6 +7,9 @@ body {
 
 .App {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navbar {
@@ -23,14 +26,16 @@ body {
 .board {
     margin: 10px auto;
     background-color: #C4C4C4;
-    width: 60%;
+    width: 90%;
     height: 70vh;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(5, auto);
     justify-content: space-evenly;
     align-items: center;
+    padding: 10px 0;
 }
+
 .yellow-btn {
     height: 44px;
     width: 44px;
@@ -42,21 +47,26 @@ body {
     color: #E4E83B;
     font-size: 1.5rem;
 }
+
 .yellow-btn:hover {
     cursor: pointer;
     color: yellow;
 }
+
 .yellow-btn:disabled {
     color: #C4C4C4;
 }
+
 /* flip-cards */
+
 .card {
-    width: 50px;
-    height: 64px;
+    width: 45px;
+    height: 60px;
     border-radius: 10px;
     background-color: transparent;
     perspective: 1000px;
 }
+
 .card-inner {
     position: relative;
     border-radius: 10px;
@@ -68,9 +78,11 @@ body {
     cursor: pointer;
     opacity: 1;
 }
+
 .card-inner img {
     width: 45px;
 }
+
 .card-back, .card-front {
     border-radius: 10px;
     position: absolute;
@@ -105,6 +117,7 @@ body {
 }
 
 /* form */
+
 .form {
     display: flex;
     flex-direction: column;
@@ -113,10 +126,13 @@ body {
     align-items: center;
     width: 100%;
 }
+
 .form-header {
     color: #E4E83B;
     letter-spacing: 1px;
+    margin-bottom: 10px;
 }
+
 .form-field {
     border-radius: 10px;
     background-color: white;
@@ -127,18 +143,30 @@ body {
     color: #333F48;
     width: 200px;
 }
+
 .form-field:focus {
     outline: none;
     border: 1px #00BEB5 solid;
 }
+
 .checkbox-field {
     width: 250px;
     font-size: 0.8rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: flex-start;
 }
+
+.checkbox-field input {
+    width: 20px;
+    height: 20px;
+}
+
 select {
     text-align-last:center;
     font-size: 1.1rem;
 }
+
 input {
     font-size: 1.2rem;
     padding-left: 0.5rem;
@@ -147,6 +175,7 @@ input {
 label {
     color: white;
 }
+
 .submit-btn {
     background-color: #E4E83B;
     border: none;
@@ -159,26 +188,31 @@ label {
     justify-content: center;
     align-items: center;
     padding-left: 10px;
-    margin-top: 0.5rem;
+    margin-top: 10px;
 }
+
 .submit-btn:hover {
     background-color: yellow;
 }
+
 .submit-btn:focus, .yellow-btn:focus, .btn:focus {
     border: none;
     outline: none;
 }
+
 /* timer */
 
 .timer {
     display: flex;
     justify-content: flex-end;
     width: 60%;
-    margin: 10px auto;
+    margin: 1vh auto;
 }
+
 .btn-set {
     display: flex;
 }
+
 .pause {
     color: orangered;
 }
@@ -202,9 +236,29 @@ label {
     border: none;
     padding-top: 15px;
 }
+
 .btn:hover {
     color: white;
 }
+
 .btn:disabled {
     color: gray;
 }
+
+@media only screen and (min-width: 620px) {
+    .board {
+        width: 600px;
+    }
+
+    .card {
+        width: 55px;
+        height: 67px;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 5/4) and (min-width: 620px){
+    .board {
+        height: 650px;
+    }
+}
+
