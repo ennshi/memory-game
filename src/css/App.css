@@ -23,6 +23,10 @@ body {
     letter-spacing: 1.5px;
 }
 
+.navbar h1:hover {
+    cursor: pointer;
+}
+
 .board {
     margin: 10px auto;
     background-color: #C4C4C4;

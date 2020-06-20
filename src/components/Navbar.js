@@ -1,12 +1,13 @@
 import React from "react";
 import {connect} from "react-redux";
 import {formValueSelector} from "redux-form";
+import {exitCurrentGame} from "../actions";
 
 class Navbar extends React.Component {
     render() {
         return (
             <div className="navbar">
-                <h1>MEMORY_GAME</h1>
+                <h1 onClick={this.props.exitCurrentGame}>MEMORY_GAME</h1>
                 <button
                     onClick={this.props.onClick}
                     className="yellow-btn"
@@ -24,4 +25,8 @@ const mapStateToProps = (state) => {
         allowCookieFromBoard: state.board.allowCookie
     };
 };
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+    mapStateToProps,
+    {
+        exitCurrentGame
+    })(Navbar);
