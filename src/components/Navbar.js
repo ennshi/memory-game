@@ -10,7 +10,7 @@ class Navbar extends React.Component {
                 <button
                     onClick={this.props.onClick}
                     className="yellow-btn"
-                    disabled={!this.props.allowCookie}>
+                    disabled={!(this.props.allowCookieFromBoard || this.props.allowCookieFromForm)}>
                     <i className="fas fa-trophy"></i>
                 </button>
             </div>
@@ -20,7 +20,8 @@ class Navbar extends React.Component {
 const mapStateToProps = (state) => {
     const selector = formValueSelector('SettingsForm');
     return {
-        allowCookie: selector(state, 'allowCookie')
+        allowCookieFromForm: selector(state, 'allowCookie'),
+        allowCookieFromBoard: state.board.allowCookie
     };
 };
 export default connect(mapStateToProps)(Navbar);

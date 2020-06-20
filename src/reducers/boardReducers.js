@@ -8,8 +8,7 @@ const INIT_STATE = {
     cards: 20,
     suits: 5,
     theme: 'animals',
-    endGame: false,
-    allowCookie: true
+    endGame: false
 };
 
 export default (state=INIT_STATE, action) => {

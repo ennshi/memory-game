@@ -33,7 +33,7 @@ class SettingsForm extends React.Component {
                     {this.renderSelectOptions(THEMES)}
                 </Field>
                 <div className="checkbox-field">
-                    <Field type="checkbox" component="input" label="allow" name="allowCookie" id="allowCookie"/>
+                    <Field type="checkbox" component="input" name="allowCookie" id="allowCookie" />
                     <label htmlFor="allowCookie">Allow MEMORY_GAME to save and read cookie data</label>
                 </div>
                 <button type="submit" className="submit-btn"><i className="fas fa-play"></i></button>
