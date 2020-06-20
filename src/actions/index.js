@@ -29,7 +29,7 @@ export const matchedCards = (idx1, idx2) => async (dispatch) => {
             type: MATCHED_CARDS,
             payload: {idx1, idx2}
         });
-    }, 700);
+    }, 600);
 };
 
 export const stopTimer = () => {

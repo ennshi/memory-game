@@ -20,7 +20,7 @@ class Board extends React.Component {
         setTimeout(() => {
             this.props.flipCard(idx1);
             this.props.flipCard(idx2);
-        }, 1000);
+        }, 700);
     };
     render() {
         const cards = this.props.board.map((card, index) => (
