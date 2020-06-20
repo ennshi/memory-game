@@ -30,7 +30,7 @@ class Card extends React.Component {
 }
 const Image = (props) => {
     return (
-        <img src={`/img/${props.theme}/${props.suit}.png`} alt={`${props.theme} ${props.suit}`}/>
+        <img src={require(`../resources/img/${props.theme}/${props.suit}.png`)} alt={`${props.theme} ${props.suit}`}/>
     );
 };
 const mapStateToProps = (state, ownParams) => {

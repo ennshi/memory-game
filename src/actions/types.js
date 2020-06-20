@@ -10,6 +10,4 @@ export const EXIT = 'EXIT';
 export const GAME_ENDED = 'GAME_ENDED';
 
 // champions action
-export const GET_CHAMPIONS = 'GET_CHAMPIONS';
 export const TOGGLE_CHAMPLIST = 'SHOW_CHAMPLIST';
-export const CLEAR_CHAMPLIST = 'CLEAR_CHAMPLIST';
