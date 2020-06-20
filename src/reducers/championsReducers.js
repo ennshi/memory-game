@@ -1,4 +1,4 @@
-import {EXIT, GAME_ENDED, TOGGLE_CHAMPLIST} from "../actions/types";
+import {EXIT, TOGGLE_CHAMPLIST} from "../actions/types";
 
 const INIT_VALUE = {
     showChampionList: false
