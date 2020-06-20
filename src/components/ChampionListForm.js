@@ -16,10 +16,10 @@ class ChampionListForm extends React.Component {
     render() {
         return (
             <form>
-                <Field name="cards" component="select">
+                <Field className="form-field-small" name="cards" component="select">
                     {this.renderSelectOptions(CARDS)}
                 </Field>
-                <Field name="suits" component="select">
+                <Field className="form-field-small" name="suits" component="select">
                     {this.renderSelectOptions(SUITS)}
                 </Field>
             </form>

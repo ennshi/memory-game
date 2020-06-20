@@ -29,3 +29,20 @@
     width: 300px;
     height: 35px;
 }
+
+.form-field-small {
+    border-radius: 10px;
+    background-color: white;
+    height: 2rem;
+    margin: 0.5rem;
+    border: 1px transparent solid;
+    font-family: 'Roboto Mono', monospace;
+    color: #333F48;
+    width: 120px;
+}
+
+.form-field-small:focus {
+    outline: none;
+    border: 1px #00BEB5 solid;
+}
+
