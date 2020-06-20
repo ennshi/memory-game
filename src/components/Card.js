@@ -10,14 +10,14 @@ class Card extends React.Component {
     render() {
         const card = this.props.board[this.props.id];
         const cardClass = classNames({
-            'card-inner': true,
+            'card-inner': !card.matched,
             'clicked': card.opened,
             'not-clicked': !card.opened,
             'matched': card.matched
         });
         return(
             <div className="card">
-                <div className={cardClass} onClick={this.onClick}>
+                <div className={cardClass} onClick={!card.matched ? this.onClick : null}>
                     <div className={card.matched ? "card-front matched" : "card-front"}>
                     </div>
                     <div className="card-back">
