@@ -2,7 +2,7 @@ const THEMES = {
     animals: 'animals',
     landmarks: 'landmarks',
     leaves: 'leaves',
-    waincats: 'waincats'
+    nekobanana: 'nekobanana'
 };
 const SUITS = {
     '5': '5 suits',
